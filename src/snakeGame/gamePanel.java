@@ -44,8 +44,6 @@ public class gamePanel extends JPanel implements ActionListener{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		draw(g);
-
-
 	}
 
 	public void draw(Graphics g){
@@ -87,26 +85,21 @@ public class gamePanel extends JPanel implements ActionListener{
 		switch(direction){
 			case 'U':
 				body.setY(0, body.getY(0)-UNIT_SIZE);
-				//y[0]=y[0]-UNIT_SIZE;
 				break;
 			case 'D':
 				body.setY(0, body.getY(0)+UNIT_SIZE);
-				//y[0]=y[0]+UNIT_SIZE;
 				break;
 			case 'L':
 				body.setX(0, body.getX(0)-UNIT_SIZE);
-				//x[0]=x[0]-UNIT_SIZE;
 				break;
 			case 'R':
 				body.setX(0, body.getX(0)+UNIT_SIZE);
-				//x[0]=x[0]+UNIT_SIZE;
 				break;
 		}
 	}
 
 	public void checkApple(){
 		if((body.getX(0) == appleX) && (body.getY(0) == appleY)){
-			//bodyParts++;
 			body.setBody(body.getBody()+1);
 			applesEaten++;
 			newApple();
@@ -121,7 +114,7 @@ public class gamePanel extends JPanel implements ActionListener{
 				running = false;
 			}
 		}
-
+/*
 		if(body.getX(0) < 0){
 			running = false;
 		}
@@ -132,6 +125,10 @@ public class gamePanel extends JPanel implements ActionListener{
 			running = false;
 		}
 		if(body.getY(0) > SCREEN_HEIGHT){
+			running = false;
+		}*/
+
+		if((body.getX(0) < 0) || (body.getX(0) > SCREEN_WIDTH) || (body.getY(0) < 0) || (body.getY(0) > SCREEN_HEIGHT)){
 			running = false;
 		}
 
